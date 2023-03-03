@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'nav.css' %}">
+  <link rel="stylesheet" href="{% static 'userinfo.css' %}">
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <script src="{% static 'sign.js'%}"></script>
+
+  {% block head %}
+  {% endblock %}
+
+</head>
+
+<body>
+
+  <header class="nav">
+    <a class="logo" href="#">Watchobb</a>
+    <nav class="menu">
+      <ul>
+        <li><a href="/recruiter">Home</a></li>
+        
+        {% if user.is_authenticated and user.is_recruiter %}
+
+          <li><a href="#">Post Job</a></li>
+          <li><a href="#">Post Walk-In</a></li>
+
+        {% else %}
+
+          <li onclick="document.getElementById('id03').style.display='block'">
+            <a data-bs-toggle="modal" data-bs-target="rlog" style="cursor: pointer;">Post Job</a></li>
+          <li onclick="document.getElementById('id03').style.display='block'">
+            <a data-bs-toggle="modal" data-bs-target="rlog" style="cursor: pointer;">Post Walk-In</a></li>
+
+        {% endif %} 
+
+        {% if user.is_authenticated %}
+
+          <li><a href="#">Notification</a></li>
+          <li>
+            <a href="#">Welcome {{fname}}   &#129171;</i></a>
+            <ul>
+              <li><a href="#"><b>See Profile</b></a></li>
+              <li><a href="{% url 'logout'%}"><b>Log Out</b></a></li>
+            </ul>
+          </li>
+
+        {% else %}
+          
+          <li onclick="document.getElementById('id03').style.display='block'">
+            <a data-bs-toggle="modal" data-bs-target="rlog" style="cursor: pointer;">Sign In</a></li>
+          <div id="id03" class="modal rlog">
+
+          {% include 'recruiterlogin.html' %} 
+          
+          </div>
+
+          <li><a href="register/">Create Account</a></li>
+        
+        {% endif %}
+          
+      
+      </ul>
+    </nav>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  {% include 'footer.html' %} 
+
+</body>
+
+</html>

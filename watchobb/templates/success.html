@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %}
+<title>
+    Success
+</title>
+<script>
+    setTimeout(function(){
+         window.location.href = "/";
+      }, 10000);
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+    
+    {% if crtn_msg %}
+            <h1 class="banner-title">{{crtn_msg}}</h1>
+        </div>
+        <h3>An account activation link has been sent to you email.</h3><br>
+        <h3>Go to your email and click on the link in order to activate your account.</h3>
+    {% else %}
+            <h1 class="banner-title">{{auth_msgs}}</h1>
+        </div>
+    {% endif %}
+
+{% endblock %}

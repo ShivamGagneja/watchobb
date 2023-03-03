@@ -1,0 +1,31 @@
+<form class="modal-content animate" action="/login_user" method="post" autocomplete="off">
+
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close"
+        title="Close Modal">&times;</span>
+      <h1 style="background-color: #f1f1f1; display: block;">User Login</h1>
+    </div>
+
+    <div class="container">
+      {% csrf_token %}
+
+      <label for="email"><b>E-mail ID</b></label>
+      <input type="email" class="form-control" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit" class="login">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+
+    </div>
+<!-- 
+    <div class="container" style="background-color:#f1f1f1">
+      <h5>Don't have an account yet?</h5>
+      <button type="button" onclick="signup()" class="signup" >Sign Up</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div> -->
+
+  </form>

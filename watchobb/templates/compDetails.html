@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<title>
+    Companies hiring in {{industry}}
+</title>
+<link rel="stylesheet" href="{% static 'comp_detail.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div class="banner2">
+    </div>
+    {% for comp in company %}
+        <div class="comp-box" id="{{company.id}}">
+            <div class="comp-details">
+                <h3 class="comp-det-head">{{comp.comp_name}}
+                </h3>
+                <div class="extra-details">
+                    
+                    {% for keyword in keywords %}
+                        <span class="keywords">{{keyword}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="comp-img">
+
+            </div>
+            <div class="other-links">
+                <ul>
+                    <li class="jobs"><a href="">Jobs</a></li>
+                    <li class="reviews"><a href="">Reviews</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+        <h2>About {{comp.comp_name}}</h2>
+            {{comp.comp_desc}}
+            <br><br>
+        <h2>More Information</h2>
+            <b>Company Type</b>:{{comp.comp_type}}<br>
+            <b>Company Size</b>:{{comp.employees}}<br>
+            <b>Founded</b>:<br>
+            <b>Headquarters</b>:{{comp.comp_add}}<br>
+            <b>Website</b>:{{comp.comp_email}}<br>
+        </div>
+    {% endfor %}
+        
+{% endblock %}

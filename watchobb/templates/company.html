@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <title>
+        {{industry}} Companies Currently Hiring
+    </title>
+    <link rel="stylesheet" href="{% static 'company.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+{% if companies %}
+    <div class="banner">
+        <h1 class="banner-title"> Following {{industry}} Companies Are Currently Hiring</h1>
+    </div>
+    <h3 class="res-index">
+        Showing {{results}} companies : <br>
+    </h3>
+    <div class="comp-container">
+        
+            
+            {% for company in companies %}
+                <div class="comp-box" id="{{company.id}}">
+                    <div class="comp-details">
+                        <h3 class="comp-det-head">
+                            <a href="{% url 'comp_details' company.slug %}">{{company.comp_name}}</a>
+                        </h3>
+                        <div class="add-com-details">
+                            <span class="comp-rating">&#9734; 4.5</span>
+                            <span class="comp-review">29 reviews</span>
+                        </div>
+                        <div class="extra-details">
+                            
+                            {% for keyword in keywords %}
+                                <span class="keywords">{{keyword}}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="comp-img">
+
+                    </div>
+                </div>         
+            {% endfor %}
+                
+        
+    
+    </div>
+{% else %}
+    <div class="banner">
+        <h1 class="banner-title"> No {{industry}} Companies Are Currently Hiring</h1>
+    </div>
+    <h3 class="res-index">
+        No Companies to show currently. <br>
+    </h3>
+{% endif %}
+    
+
+{% endblock %}

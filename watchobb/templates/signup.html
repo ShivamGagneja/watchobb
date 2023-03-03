@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head %}
+<title>
+    Companies hiring in {{industry}}
+</title>
+{% endblock %}
+
+{% block content %}
+<div class="banner">
+    <h1 class="banner-title">Register New User Here</h1>
+</div>
+<div class="comp-container">
+    <form class="modal-content animate" method="post" autocomplete="off">
+
+        <div class="imgcontainer">
+        </div>
+
+        <div class="container">
+            
+            {% csrf_token %}
+                {% for field in form %}
+
+                    <b>{{ field.label_tag }}</b>
+                        
+                        {% if field.errors %}
+                            <div class="hint">{{ field.errors }}</div>                            
+                        {% endif %}
+                            
+                    <div class="tooltip">{{field}}
+                        {% if field.help_text %}
+                        <span class="tooltiptext">{{ field.help_text }}</span>
+                        {% endif %}
+                    </div>
+            {% endfor %}
+                
+            <div class="centered">
+                <button type="submit" id="crtacc" class="acc">Create Account</button>
+            </div>
+        
+        </div>
+    </form>
+</div>
+
+{% endblock %}

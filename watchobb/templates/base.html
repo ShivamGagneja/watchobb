@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'nav.css' %}">
+  <link rel="stylesheet" href="{% static 'userinfo.css' %}">
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <script src="{% static 'sign.js'%}"></script>
+
+  {% block head %}
+  {% endblock %}
+
+</head>
+
+<body>
+
+  <header class="nav">
+    <a class="logo" href="#">Watchobb</a>
+    <nav class="menu">
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+        {% if user.is_authenticated and user.is_recruiter %}
+          <li><a href="#">Post Job</a></li>
+          <li><a href="#">Post Walk-In</a></li>
+        {% endif %} 
+
+        {% if not user.is_recruiter %}
+        <li>
+          <a href="">Jobs  &#129171;</i></a>
+          <ul>
+            <li>
+              <a href=""><b>Job Category  &#8250;</b></i>
+              </a>
+              <ul>
+                <li><a href="#"><b>HR Jobs</b></a></li>
+                <li><a href="#"><b>Sales Job</b></a></li>
+                <li><a href="#"><b>IT Job</b></a></li>
+                <li><a href="#"><b>Marketing Jobs</b></a></li>
+              </ul>
+            </li>
+            <li>
+              <a href=""><b>Jobs By Type  &#8250;</b></i>
+              </a>
+              <ul>
+                <li><a href="#"><b>Full Time</b></a></li>
+                <li><a href="#"><b>Part Time</b></a></li>
+                <li><a href="#"><b>Project</b></a></li>
+                <li><a href="#"><b>Internship</b></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="/companies">Companies  &#129171;</i></a>
+          <ul>
+            <li><a href="{% url 'companies' industry='product_based' %}"><b>Product Based</b></a></li>
+            <li><a href="{% url 'companies' industry='service_based' %}"><b>Service Based</b></a></li>
+            <li><a href="{% url 'companies' industry='startup' %}"><b>Startups</b></a></li>
+            <li><a href="{% url 'companies' industry='ecom' %}"><b>E-Commerce</b></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Walk-In   &#129171;</i></a>
+          <ul>
+            <li><a href="#"><b>XYZ</b></a></li>
+            <li><a href="#"><b>XYZ</b></a></li>
+            <li><a href="#"><b>XYZ</b></a></li>
+            <li><a href="#"><b>XYZ</b></a></li>
+          </ul>
+        </li>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <li><a href="#">Notification</a></li>
+          <li>
+            <a href="#">Welcome {{fname}}   &#129171;</i></a>
+            <ul>
+              <li><a href="#"><b>See Profile</b></a></li>
+              <li><a href="{% url 'logout'%}"><b>Log Out</b></a></li>
+            </ul>
+          </li>
+        {% else %}
+          
+        <li onclick="document.getElementById('id01').style.display='block'"><a data-bs-toggle="modal" data-bs-target="log" style="cursor: pointer;">Login</a></li>
+
+        <div id="id01" class="modal log">
+           {% include 'loginform.html' %} 
+        </div>
+
+        <div id="id02" class="modal sign">
+           {% include 'signupform.html' %} 
+        </div>
+        <li><a href="/register/candidate">Sign Up</a></li>
+        
+        {% endif %}
+          
+      
+      </ul>
+    </nav>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+  {% include 'footer.html' %} 
+
+</body>
+
+</html>

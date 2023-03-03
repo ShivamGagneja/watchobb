@@ -1,0 +1,175 @@
+
+.modal-content input[type=text], input[type=password], input[type=email], input[type=date], input[type=number], select{
+  width: 100%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  size: 20%;
+}
+
+.modal-content label{
+  background-color: #f1f1f1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background: rgba(191, 186, 186, 0.588);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.modal-content button {
+  background-color: #04aa81;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  border-radius: 10px;
+}
+
+.modal-content button:hover {
+  opacity: 0.8;
+}
+
+.modal-content .signup {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  width: -webkit-innerWidth;
+  height: 100%; /* Full height */
+  height: -webkit-innerheight;
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-image: url("bg.png");
+  margin: auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: -webkitinnerWidth;
+  width: 30%; /* Could be more or less, depending on screen size */
+  border-radius: 10px;
+  padding: 20px;
+}
+
+/* The Close Button (x) */
+.modal-content .close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: rgb(14, 1, 27);
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.modal-content .animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media only screen and (max-width: 390px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .signup {
+     width: 100%;
+  }
+  .acc {
+    width: 100%;
+  }
+  .modal{
+    width: fit-content;
+  }
+  .modal-content{
+    width: fit-content;
+  }
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hint{
+  background: #f1f1f1;
+  font-size: 14px;
+  color: red;
+  display: inline;
+}
+.hint>ul{
+  list-style: none;
+  padding: 0%;
+  display: inline;
+  margin: 8px 0px;
+}
+.hint>ul>li{
+  display: inherit;
+}

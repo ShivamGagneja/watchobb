@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block head %}
+    <title>
+        It's time to tell us more about yourself..
+    </title>
+
+{% endblock %}
+
+{% block content %}
+    <div class="banner">
+        <h1 class="banner-title">It's time to tell us more about yourself..</h1>
+        <h3>Let's go!</h3>
+    </div>
+    <div class="ui-container">
+        <form class="ui" action="/detailsubmit" method="post" autocomplete="off">
+            {% csrf_token %}
+        <div class="row">
+            <div class="col-25">
+            <label for="hsname">Enter High School Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="hsname" name="hsname" placeholder="Enter high school" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Enter High School Passing Year</label>
+            </div>
+            <div class="col-75">
+                <input type="number" placeholder="YYYY" min="1990" max="2023" id="hsyear" name="hsyear" required>
+                <script>
+                  document.querySelector("input[type=number]")
+                  .oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
+                </script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="hsmarks">Enter High School Grades</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="hsmarks" name="hsmarks" placeholder="Enter grades" min="30" max="99" step="any">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="intname">Enter Secondary School Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="intname" name="intname" placeholder="Secondary school name" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="country">Enter Secondary School Passing Year</label>
+            </div>
+            <div class="col-75">
+                <input type="number" placeholder="YYYY" min="1990" max="2023" id="intyear" name="intyear" required>
+                <script>
+                  document.querySelector("input[type=number]")
+                  .oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
+                </script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="intmarks">Enter Secondary School Grades</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="intmarks" name="intmarks" placeholder="Enter grades"  min="30" max="99" step="any">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="exp">Enter Experience In Years</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="exp" name="exp" placeholder="Enter experience" max="15">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="jprofile">Enter Job Profile</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="jprofile" name="jprofile" placeholder="Enter job profile">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="project">Enter Projects</label>
+            </div>
+            <div class="col-75">
+                <textarea id="project" name="project" placeholder="Enter your project details here...." style="resize: none; height: 200px"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="comp">Enter Current Company</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="comp" name="comp" placeholder="Your current company">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="salary">Current Salary (LPA)</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="salary" name="salary" placeholder="Your current salary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="salary">Expected Salary (LPA)</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="salex" name="salex" placeholder="Your expected salary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+            <label for="resume">Upload Resume (.doc, .docx, .pdf)</label>
+            </div>
+            <div class="col-75">
+                <label class="file-upload">
+                <input type="file" id="resume" name="resume" style="resize: none;">
+                Select Resume
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+       
+        </form>
+    </div>
+{% endblock %}
