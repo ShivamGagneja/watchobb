@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'watchobb',
         'USER': 'root',  
-        'PASSWORD': 'Crackers1*',  
+        'PASSWORD': '',  
         'HOST': '127.0.0.1',  
         'PORT': '3306',  
         'OPTIONS': {  
